@@ -12,7 +12,7 @@ class Vacancy:
         return self.__name
 
     @property
-    def firm(self)  -> str:
+    def firm(self) -> str:
         return self.__firm
 
     @property
