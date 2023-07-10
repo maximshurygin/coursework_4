@@ -1,11 +1,35 @@
 class Vacancy:
     def __init__(self, name, firm, salary_from, salary_to, url, area):
-        self.name = self.validate_str(name)
-        self.firm = self.validate_str(firm)
-        self.salary_from = self.validate_number(salary_from)
-        self.salary_to = self.validate_number(salary_to)
-        self.url = self.validate_str(url)
-        self.area = self.validate_str(area)
+        self.__name = self.validate_str(name)
+        self.__firm = self.validate_str(firm)
+        self.__salary_from = self.validate_number(salary_from)
+        self.__salary_to = self.validate_number(salary_to)
+        self.__url = self.validate_str(url)
+        self.__area = self.validate_str(area)
+
+    @property
+    def name(self):
+        return self.__name
+
+    @property
+    def firm(self):
+        return self.__firm
+
+    @property
+    def salary_from(self):
+        return self.__salary_from
+
+    @property
+    def salary_to(self):
+        return self.__salary_to
+
+    @property
+    def url(self):
+        return self.__url
+
+    @property
+    def area(self):
+        return self.__area
 
     @staticmethod
     def validate_str(string):
@@ -15,7 +39,7 @@ class Vacancy:
 
     @staticmethod
     def validate_number(number):
-        """Проверка чилсового типа"""
+        """Проверка числового типа"""
         if isinstance(number, (int, float)):
             return number
 
@@ -23,7 +47,7 @@ class Vacancy:
         """Вывод информации о классе для пользователя"""
         return f'Вакансия: {self.name}. ' \
                f'Фирма: {self.firm}. ' \
-               f'Зарпалат от {self.salary_from} до {self.salary_to}. ' \
+               f'Зарплата от {self.salary_from} до {self.salary_to}. ' \
                f'Ссылка: {self.url}. ' \
                f'Город: {self.area}.'
 
