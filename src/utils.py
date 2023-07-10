@@ -51,3 +51,20 @@ def user_interactions(class_object, salary):
     if user_choice == '1':
         show_top_vacancy()
 
+
+def user_interaction_hh():
+    """Часть взаимодействия с пользователем при выборе платформы Head Hunter"""
+
+    search_word = input('Введите ключевое слово для поиска вакансий: ')
+    salary = input('Введите минимальную зарплату: ')
+    hh = HHApi(search_word)
+    user_interactions(hh, salary)
+
+
+def user_interaction_sj():
+    """Часть взаимодействия с пользователем при выборе платформы SuperJob"""
+
+    search_word = input('Введите ключевое слово для поиска вакансий: ')
+    salary = input('Введите минимальную зарплату: ')
+    sj = SJApi(search_word)
+    user_interactions(sj, salary)
