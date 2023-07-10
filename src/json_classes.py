@@ -1,9 +1,11 @@
 import json
 from abc import ABC, abstractmethod
+import os
 
 
 class JSON(ABC):
-    FILENAME = 'vacancies.json'
+    directory = os.path.dirname(os.path.abspath(__file__))
+    FILENAME = os.path.join(directory, 'vacancies.json')
 
     @abstractmethod
     def save_json(self, api_object):
