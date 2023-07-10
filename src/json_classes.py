@@ -22,7 +22,7 @@ class JSON(ABC):
 
 class JSONSaver(JSON):
 
-    def save_json(self, api_object):
+    def save_json(self, api_object) -> None:
         """Записывает в JSON-файл найденные вакансии"""
         object_list = []
         for vacancy in api_object.get_vacancies():
@@ -31,7 +31,7 @@ class JSONSaver(JSON):
         with open(self.FILENAME, 'w', encoding='utf-8') as file:
             json.dump(object_list, file, indent=2, ensure_ascii=False)
 
-    def get_vacancy_by_salary(self, salary_from):
+    def get_vacancy_by_salary(self, salary_from) -> list:
         """Возвращает список вакансий соответствующих указанной минимальной з/п"""
         vacancy_list = []
         with open(self.FILENAME, 'r', encoding='utf-8') as file:
@@ -43,7 +43,7 @@ class JSONSaver(JSON):
 
         return vacancy_list
 
-    def delete_vacancy(self, new_data):
+    def delete_vacancy(self, new_data) -> None:
         """Перезаписывает  JSON-файл оставляя только отсортированные вакансии"""
         with open(self.FILENAME, 'w', encoding='utf-8') as file:
             json.dump(new_data, file, indent=2, ensure_ascii=False)

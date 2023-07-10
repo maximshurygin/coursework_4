@@ -8,7 +8,7 @@ directory = os.path.dirname(os.path.abspath(__file__))
 FILENAME = os.path.join(directory, 'vacancies.json')
 
 
-def show_vacancy():
+def show_vacancy() -> None:
     """Возвращает список для показа в консоль"""
     with open(FILENAME, 'r', encoding='utf-8') as file:
         data = json.load(file)
@@ -24,7 +24,7 @@ def show_vacancy():
         print('Вакансии не найдены')
 
 
-def show_top_vacancy():
+def show_top_vacancy() -> None:
     """Возвращает список top-5 вакансий"""
     with open(FILENAME, 'r', encoding='utf-8') as file:
         data = json.load(file)
@@ -40,7 +40,7 @@ def show_top_vacancy():
         print('Недостаточно вакансий для отображения топ-5\n')
 
 
-def user_interactions(class_object, salary):
+def user_interactions(class_object, salary) -> None:
     """Общая для всех платформ часть взаимодействия с пользователем"""
     js = JSONSaver()
     js.save_json(class_object)
@@ -58,7 +58,7 @@ def user_interactions(class_object, salary):
         show_top_vacancy()
 
 
-def user_interaction_hh():
+def user_interaction_hh() -> None:
     """Часть взаимодействия с пользователем при выборе платформы Head Hunter"""
 
     search_word = input('Введите ключевое слово для поиска вакансий: ')
@@ -67,7 +67,7 @@ def user_interaction_hh():
     user_interactions(hh, salary)
 
 
-def user_interaction_sj():
+def user_interaction_sj() -> None:
     """Часть взаимодействия с пользователем при выборе платформы SuperJob"""
 
     search_word = input('Введите ключевое слово для поиска вакансий: ')

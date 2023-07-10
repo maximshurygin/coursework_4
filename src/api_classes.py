@@ -19,7 +19,7 @@ class HHApi(API):
         super().__init__(keyword)
         self.url = 'https://api.hh.ru/vacancies'
 
-    def get_vacancies(self):
+    def get_vacancies(self) -> list:
         """Возвращает по ключевому слову список вакансий из Head Hunter"""
         vacancies = []
         params = {'text': self.keyword}
@@ -44,7 +44,7 @@ class SJApi(API):
         super().__init__(keyword)
         self.url = "https://api.superjob.ru/2.0/vacancies"
 
-    def get_vacancies(self):
+    def get_vacancies(self) -> list:
         """Возвращает по ключевому слову список вакансий из SuperJob"""
         vacancies = []
         params = {'keyword': self.keyword}
