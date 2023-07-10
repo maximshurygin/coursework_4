@@ -21,11 +21,11 @@ class Vacancy:
 
     def __str__(self):
         """Вывод информации о классе для пользователя"""
-        return f'Вакансия: {self.name} ' \
-               f'Фирма: {self.firm} ' \
-               f'Зарпалат от {self.salary_from} до {self.salary_to} ' \
-               f'Ссылка: {self.url} ' \
-               f'Город: {self.area}'
+        return f'Вакансия: {self.name}. ' \
+               f'Фирма: {self.firm}. ' \
+               f'Зарпалат от {self.salary_from} до {self.salary_to}. ' \
+               f'Ссылка: {self.url}. ' \
+               f'Город: {self.area}.'
 
     def __eq__(self, other):
         """Проверка равенства объектов по минимальной з/п"""
