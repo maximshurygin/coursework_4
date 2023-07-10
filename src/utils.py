@@ -32,3 +32,22 @@ def show_top_vacancy():
             print(x)
     else:
         print('Недостаточно вакансий для отображения топ-5\n')
+
+
+def user_interactions(class_object, salary):
+    """Общая для всех платформ часть взаимодействия с пользователем"""
+    js = JSONSaver()
+    js.save_json(class_object)
+    try:
+        sorted_vacancies = js.get_vacancy_by_salary(int(salary))
+    except ValueError:
+        print('Неверный ввод данных о зарплате')
+        return
+    js.delete_vacancy(sorted_vacancies)
+    show_vacancy()
+    user_choice = input('\nХотите посмотреть топ-5 вакансий по зарплате?\n'
+                        'Введите нужную цифру\n'
+                        '1-Да; 2-Нет\n')
+    if user_choice == '1':
+        show_top_vacancy()
+
