@@ -1,9 +1,11 @@
 import json
+import os
 from src.vacancy import Vacancy
 from src.api_classes import HHApi, SJApi
 from src.json_classes import JSONSaver
 
-FILENAME = 'vacancies.json'
+directory = os.path.dirname(os.path.abspath(__file__))
+FILENAME = os.path.join(directory, 'vacancies.json')
 
 
 def show_vacancy():
@@ -14,8 +16,12 @@ def show_vacancy():
     vacancies = [Vacancy(line["name"], line["firm"], line["salary from"],
                          line["salary to"], line["url"], line["area"]) for line in data]
 
-    for x in vacancies:
-        print(x)
+    if len(vacancies) > 0:
+        print(f'\nНайдено {len(vacancies)} вакансий:')
+        for x in vacancies:
+            print(x)
+    else:
+        print('Вакансии не найдены')
 
 
 def show_top_vacancy():
@@ -27,7 +33,7 @@ def show_top_vacancy():
     top_vacancies = sorted(vacancies, key=lambda x: x.salary_from, reverse=True)[:5]
 
     if len(top_vacancies) >= 5:
-        print('Топ-5 вакансий:\n')
+        print('Топ-5 вакансий:')
         for x in top_vacancies[:5]:
             print(x)
     else:
